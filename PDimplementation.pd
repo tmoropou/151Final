@@ -6,17 +6,17 @@
 #X text 164 87 3 Set OSC Addresses (routing osc data;
 #X text 155 26 Key Settings;
 #X floatatom 43 194 5 0 0 0 - - -;
-#X obj 702 318 select 0 1 2 3 4 5 6 7 8;
-#X floatatom 736 578 5 0 0 0 - - -;
-#X obj 742 729 *~;
-#X obj 733 774 dac~;
-#X obj 741 544 mtof;
-#X obj 739 483 + 0;
-#X obj 857 635 vline~;
-#X floatatom 1046 419 5 0 0 0 - - -;
-#X obj 1046 366 loadbang;
-#X msg 697 389 0;
-#X floatatom 702 254 5 0 0 0 - - -;
+#X obj 1746 376 select 0 1 2 3 4 5 6 7 8;
+#X floatatom 1780 636 5 0 0 0 - - -;
+#X obj 1786 787 *~;
+#X obj 1777 832 dac~;
+#X obj 1785 602 mtof;
+#X obj 1783 541 + 0;
+#X obj 1901 693 vline~;
+#X floatatom 2090 477 5 0 0 0 - - -;
+#X obj 2090 424 loadbang;
+#X msg 1741 447 0;
+#X floatatom 1746 312 5 0 0 0 - - -;
 #N canvas 696 281 771 493 oscReceive 0;
 #X obj 55 184 netreceive -u -b;
 #X msg 78 143 listen 0;
@@ -80,14 +80,14 @@
 #X obj 47 36 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X msg 47 61 \; pd dsp \$1;
-#X msg 736 389 2;
-#X msg 777 389 4;
-#X msg 819 389 5;
-#X msg 856 390 7;
-#X msg 897 390 9;
-#X msg 939 390 11;
-#X msg 973 390 12;
-#X obj 702 221 r osctrig;
+#X msg 1780 447 2;
+#X msg 1821 447 4;
+#X msg 1863 447 5;
+#X msg 1900 448 7;
+#X msg 1941 448 9;
+#X msg 1983 448 11;
+#X msg 2017 448 12;
+#X obj 1746 279 r osctrig;
 #X obj 44 278 oscformat PD message;
 #X msg 76 239 set PD message;
 #N canvas 727 97 450 300 oscSend 0;
@@ -109,10 +109,10 @@
 #X connect 8 0 7 0;
 #X restore 47 118 pd oscSend;
 #X obj 44 313 s oscOut;
-#X obj 663 656 osc~;
-#X obj 749 654 osc~;
-#X obj 751 627 * 1.5;
-#X text 698 194 Tirgger when picking up rotating cube...;
+#X obj 1707 714 osc~;
+#X obj 1793 712 osc~;
+#X obj 1795 685 * 1.5;
+#X text 1742 252 Tirgger when picking up rotating cube...;
 #N canvas 210 75 1024 886 synth1 0;
 #N canvas 816 130 504 454 oscillators 0;
 #X obj 206 2 inlet;
@@ -1036,38 +1036,90 @@
 #X connect 78 0 11 0;
 #X connect 79 0 80 0;
 #X connect 80 0 32 0;
-#X restore 1179 228 pd synth1;
-#X msg 851 565 0.65 25 \, 0.1 25 40 \, 0 700 100;
-#X msg 1046 393 60;
-#X text 1152 190 Implementation of a digitial synthesizer with common
+#X restore 1772 151 pd synth1;
+#X msg 1895 623 0.65 25 \, 0.1 25 40 \, 0 700 100;
+#X msg 2090 451 60;
+#X text 1745 113 Implementation of a digitial synthesizer with common
 effects processing.;
-#X obj 61 764 vline~;
-#X obj 455 756 *~;
-#X obj 448 805 dac~;
-#X obj 416 719 noise~;
-#X obj 69 512 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 12700 1;
-#X obj 113 511 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 11800 1;
-#X floatatom 69 660 5 0 0 0 - - -;
-#X floatatom 113 660 5 0 0 0 - - -;
-#X obj 159 510 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 5000 1;
-#X floatatom 159 661 5 0 0 0 - - -;
-#X text 56 511 A;
-#X text 99 509 S;
-#X text 146 509 R;
-#X obj 127 450 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 223 762 vline~;
+#X obj 617 754 *~;
+#X obj 610 803 dac~;
+#X obj 559 664 noise~;
+#X obj 231 510 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 6350 1;
+#X obj 275 509 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 6350 1;
+#X floatatom 231 658 5 0 0 0 - - -;
+#X floatatom 275 658 5 0 0 0 - - -;
+#X obj 321 508 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 6350 1;
+#X floatatom 321 659 5 0 0 0 - - -;
+#X text 218 509 A;
+#X text 261 507 S;
+#X text 308 507 R;
+#X obj 283 416 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 61 809 throw~ sound;
-#X obj 494 719 catch~ sound;
-#X msg 60 731 0.1 \$1 \, 0.06 \$2 \$1 \, 0 \$3 \$2;
-#X obj 61 697 pack f f f;
-#X text 49 431 Unity can send A \, S \, R values here;
-#X text 146 453 (Attack ms \, Sustain ms \, Release ms);
-#X text 66 716 0.1 is the max volume \, and 0.06 is the decay volume
+#X obj 223 807 throw~ sound;
+#X obj 656 717 catch~ sound;
+#X msg 222 729 0.1 \$1 \, 0.06 \$2 \$1 \, 0 \$3 \$2;
+#X obj 223 695 pack f f f;
+#X text 302 419 (Attack ms \, Sustain ms \, Release ms);
+#X text 228 714 0.1 is the max volume \, and 0.06 is the decay volume
 ;
-#X text 141 810 vline info is thrown to catch sound;
+#X text 303 808 vline info is thrown to catch sound;
+#X obj 968 767 vline~;
+#X obj 1362 759 *~;
+#X obj 1355 808 dac~;
+#X obj 976 515 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 6350 1;
+#X obj 1020 514 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 6350 1;
+#X floatatom 976 663 5 0 0 0 - - -;
+#X floatatom 1020 663 5 0 0 0 - - -;
+#X obj 1066 513 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 6350 1;
+#X floatatom 1066 664 5 0 0 0 - - -;
+#X text 963 514 A;
+#X text 1006 512 S;
+#X text 1053 512 R;
+#X obj 1024 413 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 968 700 pack f f f;
+#X text 946 394 Unity can send A \, S \, R values here;
+#X text 1043 416 (Attack ms \, Sustain ms \, Release ms);
+#X text 973 719 0.1 is the max volume \, and 0.06 is the decay volume
+;
+#X text 1048 813 vline info is thrown to catch sound;
+#X obj 1401 722 catch~ sound2;
+#X obj 967 812 throw~ sound2;
+#X text 338 503 Control Sound with Sliders;
+#X obj 577 713 lop~ \$1;
+#X floatatom 613 674 5 0 0 0 - - -;
+#X obj 613 523 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 9000 1;
+#X text 571 500 controllable low pass filter;
+#X text 205 397 Unity can send A \, S \, R values here;
+#X text 274 375 OCEAN;
+#X text 1016 377 WIND;
+#X obj 854 448 loadbang;
+#X msg 967 734 0.1 \$1 \, 0.06 \$2 \$1 \, 0 \$3 \$2;
+#X obj 1301 674 noise~;
+#X obj 1319 723 lop~ \$1;
+#X floatatom 1355 684 5 0 0 0 - - -;
+#X obj 1355 533 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2200 1;
+#X msg 854 475 1000;
+#X text 778 433 init values for A \, S \, R;
+#X obj 127 444 loadbang;
+#X msg 127 471 1000;
+#X text 51 429 init values for A \, S \, R;
+#X obj 715 614 loadbang;
+#X obj 1462 612 loadbang;
+#X text 1274 511 controllable low pass filter;
+#X text 662 596 init value for Filter in Hz;
+#X text 1409 594 init value for Filter in Hz;
+#X msg 1462 639 300;
+#X msg 715 641 1500;
 #X connect 6 0 29 0;
 #X connect 7 0 16 0;
 #X connect 7 1 21 0;
@@ -1109,7 +1161,7 @@ effects processing.;
 #X connect 41 0 55 0;
 #X connect 42 0 43 0;
 #X connect 42 0 43 1;
-#X connect 44 0 42 0;
+#X connect 44 0 83 0;
 #X connect 45 0 47 0;
 #X connect 46 0 48 0;
 #X connect 47 0 58 0;
@@ -1122,4 +1174,38 @@ effects processing.;
 #X connect 56 0 42 1;
 #X connect 57 0 41 0;
 #X connect 58 0 57 0;
-#X coords 0 0.0878949 1 0.0877949 0 0 0;
+#X connect 62 0 81 0;
+#X connect 63 0 64 0;
+#X connect 63 0 64 1;
+#X connect 65 0 67 0;
+#X connect 66 0 68 0;
+#X connect 67 0 75 0;
+#X connect 68 0 75 1;
+#X connect 69 0 70 0;
+#X connect 70 0 75 2;
+#X connect 74 0 65 0;
+#X connect 74 0 66 0;
+#X connect 74 0 69 0;
+#X connect 75 0 91 0;
+#X connect 80 0 63 1;
+#X connect 83 0 42 0;
+#X connect 84 0 83 1;
+#X connect 85 0 84 0;
+#X connect 90 0 96 0;
+#X connect 91 0 62 0;
+#X connect 92 0 93 0;
+#X connect 93 0 63 0;
+#X connect 94 0 93 1;
+#X connect 95 0 94 0;
+#X connect 96 0 65 0;
+#X connect 96 0 66 0;
+#X connect 96 0 69 0;
+#X connect 98 0 99 0;
+#X connect 99 0 45 0;
+#X connect 99 0 46 0;
+#X connect 99 0 49 0;
+#X connect 101 0 107 0;
+#X connect 102 0 106 0;
+#X connect 106 0 94 0;
+#X connect 107 0 84 0;
+#X coords 0 0.0879015 1 0.0878015 0 0 0;
