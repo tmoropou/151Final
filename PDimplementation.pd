@@ -1,4 +1,4 @@
-#N canvas 248 64 1331 879 10;
+#N canvas 516 27 1331 879 10;
 #X text 177 277 creation arguments are OSC address;
 #X text 179 238 set message to change OSC address;
 #X text 164 48 1 Set IP Address : network address;
@@ -6,17 +6,17 @@
 #X text 164 87 3 Set OSC Addresses (routing osc data;
 #X text 155 26 Key Settings;
 #X floatatom 43 194 5 0 0 0 - - -;
-#X obj 508 322 select 0 1 2 3 4 5 6 7 8;
-#X floatatom 542 582 5 0 0 0 - - -;
-#X obj 548 733 *~;
-#X obj 539 778 dac~;
-#X obj 547 548 mtof;
-#X obj 545 487 + 0;
-#X obj 663 639 vline~;
-#X floatatom 852 423 5 0 0 0 - - -;
-#X obj 852 370 loadbang;
-#X msg 503 393 0;
-#X floatatom 508 258 5 0 0 0 - - -;
+#X obj 702 318 select 0 1 2 3 4 5 6 7 8;
+#X floatatom 736 578 5 0 0 0 - - -;
+#X obj 742 729 *~;
+#X obj 733 774 dac~;
+#X obj 741 544 mtof;
+#X obj 739 483 + 0;
+#X obj 857 635 vline~;
+#X floatatom 1046 419 5 0 0 0 - - -;
+#X obj 1046 366 loadbang;
+#X msg 697 389 0;
+#X floatatom 702 254 5 0 0 0 - - -;
 #N canvas 696 281 771 493 oscReceive 0;
 #X obj 55 184 netreceive -u -b;
 #X msg 78 143 listen 0;
@@ -77,17 +77,17 @@
 #X connect 28 0 31 0;
 #X connect 29 0 28 0;
 #X restore 47 142 pd oscReceive;
-#X obj 47 36 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 47 36 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X msg 47 61 \; pd dsp \$1;
-#X msg 542 393 2;
-#X msg 583 393 4;
-#X msg 625 393 5;
-#X msg 662 394 7;
-#X msg 703 394 9;
-#X msg 745 394 11;
-#X msg 779 394 12;
-#X obj 508 225 r osctrig;
+#X msg 736 389 2;
+#X msg 777 389 4;
+#X msg 819 389 5;
+#X msg 856 390 7;
+#X msg 897 390 9;
+#X msg 939 390 11;
+#X msg 973 390 12;
+#X obj 702 221 r osctrig;
 #X obj 44 278 oscformat PD message;
 #X msg 76 239 set PD message;
 #N canvas 727 97 450 300 oscSend 0;
@@ -109,10 +109,10 @@
 #X connect 8 0 7 0;
 #X restore 47 118 pd oscSend;
 #X obj 44 313 s oscOut;
-#X obj 469 660 osc~;
-#X obj 555 658 osc~;
-#X obj 557 631 * 1.5;
-#X text 504 198 Tirgger when picking up rotating cube...;
+#X obj 663 656 osc~;
+#X obj 749 654 osc~;
+#X obj 751 627 * 1.5;
+#X text 698 194 Tirgger when picking up rotating cube...;
 #N canvas 210 75 1024 886 synth1 0;
 #N canvas 816 130 504 454 oscillators 0;
 #X obj 206 2 inlet;
@@ -378,8 +378,8 @@
 #X obj 694 195 vd~ \$0-delay;
 #X obj 839 196 vd~ \$0-delay;
 #X obj 985 192 vd~ \$0-delay;
-#X obj 61 145 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0 256;
+#X obj 61 145 nbx 5 14 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 0 256;
 #X obj 22 92 inlet~;
 #X obj 532 418 outlet~;
 #X obj 630 416 outlet~;
@@ -467,14 +467,14 @@
 #X text 117 513 ax[n-t];
 #X text 131 156 Rate (Hz);
 #X obj 45 545 +~, f 4;
-#X obj 75 159 nbx 5 14 -1e+37 1e+37 0 0 empty \$0-rate empty 0 -8 0
-10 -262144 -1 -1 0.05 256;
-#X obj 144 267 nbx 5 14 0 1e+37 0 0 empty \$0-depth empty 0 -8 0 10
+#X obj 75 159 nbx 5 14 -1e+037 1e+037 0 0 empty \$0-rate empty 0 -8
+0 10 -262144 -1 -1 0.05 256;
+#X obj 144 267 nbx 5 14 0 1e+037 0 0 empty \$0-depth empty 0 -8 0 10
 -262144 -1 -1 0.75 256;
-#X obj 147 356 nbx 5 14 0 1e+37 0 0 empty \$0-shift empty 0 -8 0 10
+#X obj 147 356 nbx 5 14 0 1e+037 0 0 empty \$0-shift empty 0 -8 0 10
 -262144 -1 -1 0 256;
 #X obj 103 489 nbx 5 14 0 1 0 0 empty \$0-feedback empty 0 -8 0 10
--262144 -1 -1 0.579111 256;
+-262144 -1 -1 0.025 256;
 #X obj 75 294 *~ 1, f 9;
 #X obj 74 377 +~ 0.001, f 11;
 #X obj 51 18 inlet~;
@@ -610,14 +610,14 @@
 #X text 169 112 Rate (Hz);
 #X text 240 304 Shift (ms);
 #X obj 84 599 +~, f 4;
-#X obj 113 115 nbx 5 14 -1e+37 1e+37 0 0 empty \$0-rate empty 0 -8
+#X obj 113 115 nbx 5 14 -1e+037 1e+037 0 0 empty \$0-rate empty 0 -8
 0 10 -262144 -1 -1 0.05 256;
-#X obj 182 223 nbx 5 14 0 1e+37 0 0 empty \$0-depth empty 0 -8 0 10
+#X obj 182 223 nbx 5 14 0 1e+037 0 0 empty \$0-depth empty 0 -8 0 10
 -262144 -1 -1 0.3 256;
-#X obj 180 308 nbx 5 14 0 1e+37 0 0 empty \$0-shift empty 0 -8 0 10
+#X obj 180 308 nbx 5 14 0 1e+037 0 0 empty \$0-shift empty 0 -8 0 10
 -262144 -1 -1 0 256;
 #X obj 168 539 nbx 5 14 0 1 0 0 empty \$0-feedback empty 0 -8 0 10
--262144 -1 -1 0.652444 256;
+-262144 -1 -1 0.025 256;
 #N canvas 0 23 622 635 apset~ 0;
 #N canvas 0 22 450 300 ap~ 0;
 #X obj 127 160 rpole~;
@@ -1036,11 +1036,38 @@
 #X connect 78 0 11 0;
 #X connect 79 0 80 0;
 #X connect 80 0 32 0;
-#X restore 985 232 pd synth1;
-#X msg 663 586 0.65 25 \, 0.1 25 40 \, 0 700 100;
-#X msg 852 397 60;
-#X text 958 194 Implementation of a digitial synthesizer with common
+#X restore 1179 228 pd synth1;
+#X msg 851 565 0.65 25 \, 0.1 25 40 \, 0 700 100;
+#X msg 1046 393 60;
+#X text 1152 190 Implementation of a digitial synthesizer with common
 effects processing.;
+#X obj 61 764 vline~;
+#X obj 455 756 *~;
+#X obj 448 805 dac~;
+#X obj 416 719 noise~;
+#X obj 69 512 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 12700 1;
+#X obj 113 511 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 11800 1;
+#X floatatom 69 660 5 0 0 0 - - -;
+#X floatatom 113 660 5 0 0 0 - - -;
+#X obj 159 510 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5000 1;
+#X floatatom 159 661 5 0 0 0 - - -;
+#X text 56 511 A;
+#X text 99 509 S;
+#X text 146 509 R;
+#X obj 127 450 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 61 809 throw~ sound;
+#X obj 494 719 catch~ sound;
+#X msg 60 731 0.1 \$1 \, 0.06 \$2 \$1 \, 0 \$3 \$2;
+#X obj 61 697 pack f f f;
+#X text 49 431 Unity can send A \, S \, R values here;
+#X text 146 453 (Attack ms \, Sustain ms \, Release ms);
+#X text 66 716 0.1 is the max volume \, and 0.06 is the decay volume
+;
+#X text 141 810 vline info is thrown to catch sound;
 #X connect 6 0 29 0;
 #X connect 7 0 16 0;
 #X connect 7 1 21 0;
@@ -1079,3 +1106,20 @@ effects processing.;
 #X connect 35 0 34 0;
 #X connect 38 0 13 0;
 #X connect 39 0 14 0;
+#X connect 41 0 55 0;
+#X connect 42 0 43 0;
+#X connect 42 0 43 1;
+#X connect 44 0 42 0;
+#X connect 45 0 47 0;
+#X connect 46 0 48 0;
+#X connect 47 0 58 0;
+#X connect 48 0 58 1;
+#X connect 49 0 50 0;
+#X connect 50 0 58 2;
+#X connect 54 0 45 0;
+#X connect 54 0 46 0;
+#X connect 54 0 49 0;
+#X connect 56 0 42 1;
+#X connect 57 0 41 0;
+#X connect 58 0 57 0;
+#X coords 0 0.0878949 1 0.0877949 0 0 0;
