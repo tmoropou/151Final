@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityOSC;
+
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
@@ -16,6 +18,13 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
+
+    void Start()
+    {
+        OSCHandler.Instance.Init();
+        OSCHandler.Instance.SendMessageToClient("pd", "/unity/trigger", "ready");
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -59,4 +68,6 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
     }
+
+    
 }

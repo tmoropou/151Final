@@ -143,8 +143,8 @@ Material:
     m_Floats:
     - _Albedo2Flow: 0.3
     - _Albedo2Tiling: 2.3
-    - _AlbedoContrast: 1.4
-    - _AlbedoIntensity: 2.55
+    - _AlbedoContrast: 1.5
+    - _AlbedoIntensity: 2.08
     - _Brightness: 1
     - _BumpScale: 1
     - _Contrast: 1
@@ -202,8 +202,8 @@ Material:
     - _ParallaxScale: 0.35
     - _Radius: 1
     - _Reflect: 1
-    - _ReflectionContrast: 1.1
-    - _ReflectionSaturation: 0.5
+    - _ReflectionContrast: 0.95
+    - _ReflectionSaturation: 0.97
     - _ReflectionStrength: 1.7
     - _RefractionIntensity: 0.61
     - _RefractionSpeed: 1.61
@@ -212,7 +212,7 @@ Material:
     - _SaturationRef: 0.5
     - _Shininess: 0.57
     - _SmoothnessTextureChannel: 0
-    - _SoftFactor: 0.06
+    - _SoftFactor: 1
     - _SpecularHighlights: 1
     - _Speed: 0.5
     - _SpeedX: 0.1

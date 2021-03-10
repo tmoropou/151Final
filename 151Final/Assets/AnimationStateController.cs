@@ -2,15 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityOSC;
+
 public class AnimationStateController : MonoBehaviour
 {
     Animator animator;
+
+    bool playingWalkSound = false;
+    bool playingSprintSound = false;
+    bool isWalking = false;
+    bool isSprinting = false;
 
     // Start is called before the first frame update
     void Start()
     {
 
         animator = GetComponent<Animator>();
+
+        OSCHandler.Instance.Init();
+        //OSCHandler.Instance.SendMessageToClient("pd", "/unity/trigger", "ready");
 
     }
 
@@ -29,6 +39,7 @@ public class AnimationStateController : MonoBehaviour
         if (forwardPressed)
         {
             animator.SetBool("isWalking?", true);
+            
         } else
         {
             animator.SetBool("isWalking?", false);
@@ -84,5 +95,54 @@ public class AnimationStateController : MonoBehaviour
             animator.SetBool("isJumping?", false);
         }
 
+        if (shiftKeyDown && (forwardPressed || rightPressed ||leftPressed || backPressed))
+        {
+            isWalking = false;
+            isSprinting = true;
+        }
+        else
+        {
+            isSprinting = false;
+        }
+
+        if((forwardPressed || rightPressed || leftPressed || backPressed) && !shiftKeyDown)
+        {
+            isWalking = true;
+        }
+        else
+        {
+            isWalking = false;
+        }
+
+        if (isWalking && !playingWalkSound)
+        {
+            OSCHandler.Instance.SendMessageToClient("pd", "/unity/playfootstep", 1);
+            playingWalkSound = true;
+            playingSprintSound = false;
+
+        } else if (isSprinting && !playingSprintSound)
+        {
+            OSCHandler.Instance.SendMessageToClient("pd", "/unity/playrunstep", 400);
+            playingSprintSound = true;
+            playingWalkSound = false;
+
+        } else if (!backPressed && !forwardPressed && !leftPressed && !rightPressed && playingWalkSound)
+        {
+            OSCHandler.Instance.SendMessageToClient("pd", "/unity/playfootstep", 0);
+            playingWalkSound = false;
+            playingSprintSound = false;
+        } else if (!backPressed && !forwardPressed && !leftPressed && !rightPressed && playingSprintSound)
+        {
+            OSCHandler.Instance.SendMessageToClient("pd", "/unity/playrunstep", 0);
+            playingSprintSound = false;
+            playingWalkSound = false;
+        }
+
+    }
+    void OnApplicationQuit()
+    {
+        OSCHandler.Instance.SendMessageToClient("pd", "/unity/playfootstep", 0);
+        OSCHandler.Instance.SendMessageToClient("pd", "/unity/playrunstep", 0);
+        OSCHandler.Instance.SendMessageToClient("pd", "/unity/oscplayocean", 0);
     }
 }

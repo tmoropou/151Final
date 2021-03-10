@@ -1149,8 +1149,8 @@ WindZone:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133863856}
   m_Enabled: 1
-  m_Mode: 0
-  m_Radius: 20
+  m_Mode: 1
+  m_Radius: 100
   m_WindMain: 1
   m_WindTurbulence: 1
   m_WindPulseMagnitude: 0.5
@@ -3567,7 +3567,6 @@ GameObject:
   - component: {fileID: 500212791}
   - component: {fileID: 500212790}
   - component: {fileID: 500212789}
-  - component: {fileID: 500212792}
   m_Layer: 8
   m_Name: Terrain
   m_TagString: Untagged
@@ -3633,18 +3632,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &500212792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 500212788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefa7455d7baf4e4fb12885070f81afb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &503239902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10788,10 +10775,30 @@ PrefabInstance:
       propertyPath: windZone
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2225698136394525671, guid: 97878204633644688ffb5ce1b2632894,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2225698136394525671, guid: 97878204633644688ffb5ce1b2632894,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2225698136394525671, guid: 97878204633644688ffb5ce1b2632894,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3161590181684939375, guid: 97878204633644688ffb5ce1b2632894,
         type: 3}
       propertyPath: m_Name
       value: Water Specular
+      objectReference: {fileID: 0}
+    - target: {fileID: 3161590181684939375, guid: 97878204633644688ffb5ce1b2632894,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9115835943610240885, guid: 97878204633644688ffb5ce1b2632894,
         type: 3}
@@ -15517,6 +15524,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 393b236c42954a640b513d46de90ac38, type: 3}
+--- !u!1 &2083921082 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3161590181684939375, guid: 97878204633644688ffb5ce1b2632894,
+    type: 3}
+  m_PrefabInstance: {fileID: 1376736867}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2083921087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083921082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eefa7455d7baf4e4fb12885070f81afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interpolationFramesCount: 45
 --- !u!1001 &2132371883
 PrefabInstance:
   m_ObjectHideFlags: 0
