@@ -21,7 +21,7 @@ public class AnimationStateController : MonoBehaviour
 
         OSCHandler.Instance.Init();
         //OSCHandler.Instance.SendMessageToClient("pd", "/unity/trigger", "ready");
-
+        OSCHandler.Instance.SendMessageToClient("pd", "/unity/oscplayocean", 1);
     }
 
     // Update is called once per frame
@@ -142,7 +142,6 @@ public class AnimationStateController : MonoBehaviour
     void OnApplicationQuit()
     {
         OSCHandler.Instance.SendMessageToClient("pd", "/unity/playfootstep", 0);
-        OSCHandler.Instance.SendMessageToClient("pd", "/unity/playrunstep", 0);
         OSCHandler.Instance.SendMessageToClient("pd", "/unity/oscplayocean", 0);
     }
 }

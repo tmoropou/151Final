@@ -6,6 +6,8 @@ using UnityOSC;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public float rayRange = 4;
+
     public CharacterController controller;
 
     public float speed = 2f;
@@ -23,12 +25,14 @@ public class PlayerMovement : MonoBehaviour
     {
         OSCHandler.Instance.Init();
         OSCHandler.Instance.SendMessageToClient("pd", "/unity/trigger", "ready");
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        CastRay();
+
         bool shiftKeyDown = Input.GetKey("left shift");
         bool forwardPressed = Input.GetKey("w");
 
@@ -67,7 +71,24 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
         controller.Move(velocity * Time.deltaTime);
 
-    }
 
+        if (Input.GetKey("f"))
+        {
+            
+        }
+    }
     
+    void CastRay()
+    {
+        RaycastHit hitInfo = new RaycastHit();
+        bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo, rayRange);
+        if (hit)
+        {
+            GameObject hitObject = hitInfo.transform.gameObject;
+            if (Input.GetMouseButtonDown(0))
+            {
+                hitObject.GetComponent<IInteractable>().Interact();
+            }
+        }
+    }
 }
