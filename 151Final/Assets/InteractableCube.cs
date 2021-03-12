@@ -8,8 +8,16 @@ public class InteractableCube : MonoBehaviour, IInteractable
 {
     int channelNumber = 1;
     bool channel3Playing = false;
+
     public void Interact()
     {
+        OSCHandler.Instance.SendMessageToClient("pd", "/unity/playchangeradio", 1);
+        StartCoroutine(ChangeRadio());
+    }
+
+    IEnumerator ChangeRadio()
+    {
+        yield return new WaitForSeconds(1);
         switch (channelNumber)
         {
             case 1:
