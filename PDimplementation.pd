@@ -78,7 +78,7 @@
 #X connect 35 0 37 0;
 #X connect 36 0 35 0;
 #X restore 47 260 pd oscReceive;
-#X obj 47 154 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 47 154 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 47 179 \; pd dsp \$1;
 #X obj 171 331 oscformat PD message;
@@ -106,13 +106,13 @@
 #X obj 617 872 *~;
 #X obj 609 1005 dac~;
 #X obj 231 628 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 9525 1;
+-1 -1 8425 1;
 #X obj 275 627 vsl 15 128 0 4000 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 4762 1;
+-1 -1 9000 1;
 #X floatatom 231 776 5 1000 2000 0 - - -;
 #X floatatom 275 776 5 1000 4000 0 - - -;
 #X obj 321 626 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 9525 1;
+-1 -1 8625 1;
 #X floatatom 321 777 5 1000 2000 0 - - -;
 #X text 218 627 A;
 #X text 261 625 S;
@@ -127,7 +127,7 @@
 #X obj 577 831 lop~ \$1;
 #X floatatom 613 792 5 0 0 0 - - -;
 #X obj 610 638 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
+-1 -1 9200 1;
 #X text 571 618 controllable low pass filter;
 #X text 338 465 Unity can send A \, S \, R values here;
 #X text 421 444 OCEAN;
@@ -139,7 +139,7 @@
 #X obj 347 1243 line~;
 #X obj 347 1195 \$1 100;
 #X obj 347 1149 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-0 1;
+1 1;
 #X obj 274 1342 *~ 0.1;
 #X obj 266 443 r oscplaywave;
 #X obj 347 1112 r oscplayocean;
@@ -180,7 +180,7 @@
 #X obj 2233 679 line~;
 #X obj 2233 631 \$1 100;
 #X obj 2233 585 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-0 1;
+1 1;
 #X obj 2160 778 *~ 0.1;
 #X text 2303 577 Radio Channel 3;
 #X obj 2085 663 osc~ 600;
@@ -197,7 +197,7 @@
 #X floatatom 2233 527 5 0 1 0 - - -;
 #X obj 1172 850 lop~ 15;
 #X msg 1286 813 0.5 10 \, 0 50 75;
-#X obj 1237 1110 dac~;
+#X obj 1237 1174 dac~;
 #X obj 1104 958 *~ 1.5;
 #N canvas 368 88 1382 806 Radio1 0;
 #X obj 1057 730 *~;
@@ -849,7 +849,7 @@
 #X obj 135 1507 tabread4~ 808Data;
 #X text 346 1064 Adjust playback speed;
 #X obj 348 1046 hsl 128 15 -1 2 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 11759 1;
+-1 -1 10583 1;
 #X obj 216 1267 metro 50;
 #X obj 216 1296 snapshot~;
 #X floatatom 216 1325 5 0 0 0 - - -;
@@ -1170,7 +1170,6 @@
 #X obj 176 559 loadbang;
 #X msg 715 759 350;
 #X obj 266 1168 loadbang;
-#X msg 266 1197 150;
 #X floatatom 118 766 5 1000 2000 0 - - -;
 #X obj 118 644 r oscplaywave;
 #X obj 118 670 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -1201,6 +1200,8 @@
 #X obj 760 1089 r playchangeradio;
 #X obj 744 1353 *~ 0.1;
 #X msg 688 1180 900;
+#X msg 266 1197 175;
+#X obj 1241 1074 *~ 0.5;
 #X connect 6 0 10 0;
 #X connect 8 0 9 0;
 #X connect 10 0 13 0;
@@ -1209,10 +1210,10 @@
 #X connect 15 0 53 0;
 #X connect 17 0 19 0;
 #X connect 18 0 20 0;
-#X connect 19 0 141 0;
-#X connect 20 0 141 1;
+#X connect 19 0 140 0;
+#X connect 20 0 140 1;
 #X connect 21 0 22 0;
-#X connect 22 0 141 2;
+#X connect 22 0 140 2;
 #X connect 27 0 15 1;
 #X connect 32 0 15 0;
 #X connect 33 0 32 1;
@@ -1292,8 +1293,7 @@
 #X connect 116 0 118 0;
 #X connect 117 0 115 0;
 #X connect 118 0 102 0;
-#X connect 119 0 98 0;
-#X connect 119 0 98 1;
+#X connect 119 0 162 0;
 #X connect 120 0 121 0;
 #X connect 122 0 96 0;
 #X connect 123 0 105 0;
@@ -1305,31 +1305,33 @@
 #X connect 130 0 21 0;
 #X connect 131 0 130 0;
 #X connect 132 0 33 0;
-#X connect 133 0 134 0;
-#X connect 134 0 57 0;
-#X connect 135 0 141 3;
-#X connect 136 0 137 0;
-#X connect 137 0 142 0;
-#X connect 138 0 135 0;
-#X connect 139 0 138 0;
-#X connect 140 0 14 0;
-#X connect 141 0 140 0;
-#X connect 142 0 139 0;
-#X connect 144 0 32 0;
-#X connect 145 0 41 0;
-#X connect 147 0 148 1;
-#X connect 148 0 160 0;
-#X connect 150 0 156 1;
-#X connect 151 0 161 0;
-#X connect 152 0 156 0;
-#X connect 153 0 155 0;
-#X connect 154 0 155 0;
-#X connect 155 0 147 0;
-#X connect 156 0 157 0;
-#X connect 157 0 148 0;
-#X connect 158 0 157 1;
-#X connect 159 0 153 0;
+#X connect 133 0 161 0;
+#X connect 134 0 140 3;
+#X connect 135 0 136 0;
+#X connect 136 0 141 0;
+#X connect 137 0 134 0;
+#X connect 138 0 137 0;
+#X connect 139 0 14 0;
+#X connect 140 0 139 0;
+#X connect 141 0 138 0;
+#X connect 143 0 32 0;
+#X connect 144 0 41 0;
+#X connect 146 0 147 1;
+#X connect 147 0 159 0;
+#X connect 149 0 155 1;
+#X connect 150 0 160 0;
+#X connect 151 0 155 0;
+#X connect 152 0 154 0;
+#X connect 153 0 154 0;
+#X connect 154 0 146 0;
+#X connect 155 0 156 0;
+#X connect 156 0 147 0;
+#X connect 157 0 156 1;
+#X connect 158 0 152 0;
+#X connect 159 0 148 0;
+#X connect 159 0 148 1;
 #X connect 160 0 149 0;
-#X connect 160 0 149 1;
-#X connect 161 0 150 0;
+#X connect 161 0 57 0;
+#X connect 162 0 98 0;
+#X connect 162 0 98 1;
 #X coords 0 0.0997017 1 0.0996017 0 0 0;
